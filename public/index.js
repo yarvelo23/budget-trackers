@@ -79,9 +79,9 @@ function populateChart() {
 }
 
 function sendTransaction(isAdding) {
-  let nameEl = document.querySelector("#t-name");
-  let amountEl = document.querySelector("#t-amount");
-  let errorEl = document.querySelector(".form .error");
+  const nameEl = document.querySelector("#t-name");
+  const amountEl = document.querySelector("#t-amount");
+  const errorEl = document.querySelector(".form .error");
 
   // validate form
   if (nameEl.value === "" || amountEl.value === "") {
@@ -93,7 +93,7 @@ function sendTransaction(isAdding) {
   }
 
   // create record
-  let transaction = {
+  const transaction = {
     name: nameEl.value,
     value: amountEl.value,
     date: new Date().toISOString()
@@ -135,7 +135,7 @@ function sendTransaction(isAdding) {
     }
   })
   .catch(err => {
-    // fetch failed, so save in indexed db
+    // (fetch failed, so save in indexed db)
     saveRecord(transaction);
 
     // clear form
